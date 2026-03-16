@@ -1,17 +1,21 @@
 class Solution {
     public int getSecondLargest(int[] arr) {
+        int secondmax=Integer.MIN_VALUE;
+        int max= Integer.MIN_VALUE;;
         int n= arr.length;
-        int fmax=0;
-        int smax=-1;
         for(int i=0;i<n;i++){
-            if(arr[i]>fmax)
-                fmax=arr[i];
-        }
-        for(int i=0;i<n;i++){
-            if(arr[i]>smax && arr[i]!=fmax){
-                smax=arr[i];
+            if(arr[i]>max){
+                secondmax= max;
+                max= arr[i];
+            }
+            else if(arr[i]>secondmax && arr[i]!=max){
+                secondmax=arr[i];
+            
             }
         }
-        return smax;
+        if(secondmax!= Integer.MIN_VALUE){
+            return secondmax;
+        }
+        return -1;
     }
 }
